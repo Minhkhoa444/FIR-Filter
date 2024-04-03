@@ -6,7 +6,7 @@ module fir_filter #(
     parameter coeff_width = 16,
     parameter input_width = 16,
     parameter output_width = 16,
-    parameter internal_width = 16,
+    parameter internal_width = 16
 ) (    
     // AXI Stream
     input                                   aclk,
@@ -17,9 +17,10 @@ module fir_filter #(
     output[output_width-1:0]                m_axis_tdata,
     output reg                              m_axis_tlast,
     output reg                              m_axis_tvalid,
-    input                                   m_axis_tready
+    input                                   m_axis_tready,
     // AXI Stream
     
+    input                                   rst_i,    
     input signed[coeff_width-1:0]           b0_i,
     input signed[coeff_width-1:0]           b1_i,
     input signed[coeff_width-1:0]           b2_i,
